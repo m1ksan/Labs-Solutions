@@ -3,6 +3,10 @@
 ## Solution [here](https://youtu.be/YlIV1clKA64)
 
 ### Run the following Commands in CloudShell
+```
+gcloud auth login
+```
+
 
 ```
 export EVENT_TABLE=

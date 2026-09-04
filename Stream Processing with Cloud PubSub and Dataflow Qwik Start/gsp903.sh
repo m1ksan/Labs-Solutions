@@ -60,18 +60,21 @@ gcloud scheduler jobs run publisher-job --location=$REGION
 cat > automate_commands.sh <<EOF_END
 #!/bin/bash
 
-git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
-cd python-docs-samples/pubsub/streaming-analytics
-pip install -U -r requirements.txt
-python PubSubToGCS.py \
---project=$PROJECT_ID \
---region=$REGION \
---input_topic=projects/$PROJECT_ID/topics/$TOPIC_ID \
---output_path=gs://$BUCKET_NAME/samples/output \
---runner=DataflowRunner \
---window_size=2 \
---num_shards=2 \
---temp_location=gs://$BUCKET_NAME/temp
+git clone https://github.com/GoogleCloudPlatform/java-docs-samples.git
+cd java-docs-samples/pubsub/streaming-analytics
+mvn compile exec:java \
+-Dexec.mainClass=com.examples.pubsub.streaming.PubSubToGcs \
+-Dexec.cleanupDaemonThreads=false \
+-Dexec.args=" \
+    --project=$PROJECT_ID \
+    --region=$REGION \
+    --inputTopic=projects/$PROJECT_ID/topics/$TOPIC_ID \
+    --output=gs://$BUCKET_NAME/samples/output \
+    --runner=DataflowRunner \
+    --windowSize=2 \
+    --tempLocation=gs://$BUCKET_NAME/temp \
+    --workerDiskType=compute.googleapis.com/projects/${PROJECT_ID}/zones/${ZONE}/diskTypes/pd-standard \
+    --workerMachineType=e2-standard-2"
 EOF_END
 
 chmod +x automate_commands.sh

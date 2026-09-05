@@ -113,15 +113,17 @@ pip install "apache-beam[gcp]==2.48.0"
 
 echo "========== STEP 4: PYTHON =========="
 python PubSubToGCS.py \
---project=$PROJECT_ID \
---region=$REGION \
---input_topic=projects/$PROJECT_ID/topics/$TOPIC \
---output_path=gs://$BUCKET/samples/output \
---runner=DataflowRunner \
---window_size=2 \
---num_shards=2 \
---temp_location=gs://\$BUCKET_NAME/temp
-
+    --project=$PROJECT_ID \
+    --region=$REGION \
+    --input_topic=projects/$PROJECT_ID/topics/$TOPIC \
+    --output_path=gs://$BUCKET/samples/output \
+    --runner=DataflowRunner \
+    --window_size=2 \
+    --num_shards=2 \
+    --temp_location=gs://$BUCKET_NAME/temp \
+    --worker_disk_type=compute.googleapis.com/projects/$PROJECT_ID/zones/$ZONE/diskTypes/pd-standard \
+    --worker_machine_type=e2-standard-2 \
+    --worker_zone=$ZONE
 echo "========== SHELL.SH END =========="
 EOF_CP
 

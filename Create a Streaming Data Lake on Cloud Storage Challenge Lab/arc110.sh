@@ -72,7 +72,7 @@ cat > shell.sh <<EOF_CP
 #!/bin/bash
 git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
 cd python-docs-samples/pubsub/streaming-analytics
-pip install -U -r requirements.txt
+pip install "apache-beam[gcp]==2.48.0"
 python PubSubToGCS.py \
 --project=$PROJECT_ID \
 --region=$REGION \

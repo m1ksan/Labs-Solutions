@@ -1,8 +1,24 @@
 #!/bin/bash
 # Define color variables
-# ================= INPUT =================
-read -p "Masukkan nama TOPIC: " TOPIC
-read -p "Masukkan MESSAGE: " MESSAGE
+read -p "Masukkan Zone [contoh: us-central1-b]: " ZONE
+read -p "Masukkan Topic: " TOPIC
+read -p "Masukkan Message: " MESSAGE
+
+export ZONE
+export TOPIC
+export MESSAGE
+
+REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
+export REGION
+
+echo ""
+echo "========== CONFIG =========="
+echo "ZONE    : $ZONE"
+echo "REGION  : $REGION"
+echo "TOPIC   : $TOPIC"
+echo "MESSAGE : $MESSAGE"
+echo "============================"
+echo ""
 
 export TOPIC
 export MESSAGE
@@ -31,8 +47,8 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-export ZONE=$(gcloud compute project-info describe \
---format="value(commonInstanceMetadata.items[google-compute-default-zone])")
+#export ZONE=$(gcloud compute project-info describe \
+#--format="value(commonInstanceMetadata.items[google-compute-default-zone])")
 
 export REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
 

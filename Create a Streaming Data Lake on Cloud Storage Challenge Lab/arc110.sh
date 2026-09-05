@@ -76,9 +76,26 @@ done
 
 cat > shell.sh <<EOF_CP
 #!/bin/bash
+
+echo "========== SHELL.SH START =========="
+echo "PROJECT_ID=$PROJECT_ID"
+echo "REGION=$REGION"
+echo "TOPIC=$TOPIC"
+echo "BUCKET=$BUCKET"
+echo "BUCKET_NAME=\$BUCKET_NAME"
+
+echo "========== STEP 1: GIT CLONE =========="
 git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
+
+echo "========== STEP 2: CD =========="
 cd python-docs-samples/pubsub/streaming-analytics
+pwd
+ls -la
+
+echo "========== STEP 3: PIP INSTALL =========="
 pip install "apache-beam[gcp]==2.48.0"
+
+echo "========== STEP 4: PYTHON =========="
 python PubSubToGCS.py \
 --project=$PROJECT_ID \
 --region=$REGION \
@@ -87,12 +104,22 @@ python PubSubToGCS.py \
 --runner=DataflowRunner \
 --window_size=2 \
 --num_shards=2 \
---temp_location=gs://$BUCKET_NAME/temp
+--temp_location=gs://\$BUCKET_NAME/temp
+
+echo "========== SHELL.SH END =========="
 EOF_CP
 
 chmod +x shell.sh
 
-docker run -it -e DEVSHELL_PROJECT_ID=$DEVSHELL_PROJECT_ID -e BUCKET_NAME=$BUCKET -e PROJECT_ID=$PROJECT_ID -e REGION=$REGION -e TOPIC=$TOPIC -v $(pwd)/shell.sh:/shell.sh python:3.7 /bin/bash -c "/shell.sh"
+docker run -it \
+  -e DEVSHELL_PROJECT_ID="$DEVSHELL_PROJECT_ID" \
+  -e BUCKET_NAME="$BUCKET" \
+  -e PROJECT_ID="$PROJECT_ID" \
+  -e REGION="$REGION" \
+  -e TOPIC="$TOPIC" \
+  -v "$(pwd)/shell.sh:/shell.sh:ro" \
+  python:3.7 \
+  /bin/bash -c "bash -x /shell.sh"
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 

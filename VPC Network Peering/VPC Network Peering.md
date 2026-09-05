@@ -1,16 +1,11 @@
 # VPC Network Peering || [GSP193](https://www.cloudskillsboost.google/focuses/964?parent=catalog) ||
 
-## Solution [here](https://youtu.be/FkOHmlSXZXg)
+## Solution SEPTEMBER
 
 ### Run the following Commands in CloudShell
 
 ```
-export PROJECT_ID_2=
-export ZONE=
-export ZONE_2=
-```
-```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/VPC%20Network%20Peering/gsp193.sh
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/VPC%20Network%20Peering/gsp193.sh
 
 sudo chmod +x gsp193.sh
 

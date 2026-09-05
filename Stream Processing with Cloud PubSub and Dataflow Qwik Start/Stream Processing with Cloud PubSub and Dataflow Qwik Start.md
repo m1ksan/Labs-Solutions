@@ -24,9 +24,6 @@ git clone https://github.com/GoogleCloudPlatform/python-docs-samples.git
 cd python-docs-samples/pubsub/streaming-analytics
 ```
 ```
-pip install -U -r requirements.txt  # Install Apache Beam dependencies
-```
-```
 pip install "apache-beam[gcp]==2.48.0"
 ```
 

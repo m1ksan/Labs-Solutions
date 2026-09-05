@@ -1,11 +1,10 @@
 # Dataplex: Qwik Start - Console || [GSP1143](https://www.cloudskillsboost.google/focuses/62709?parent=catalog) ||
 
-## Solution [here](https://youtu.be/yDQfs8fNBgM)
+## Solution september
 
 ### Run the following Commands in CloudShell
 
 ```
-export REGION=
 ```
 ```
 curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Dataplex%20Qwik%20Start%20-%20Console/gsp1143.sh

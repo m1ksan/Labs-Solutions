@@ -14,7 +14,6 @@
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
 ```
 ```
 curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form1.sh

@@ -7,7 +7,7 @@
 ```
 ```
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Dataplex%20Qwik%20Start%20-%20Console/gsp1143.sh
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Dataplex%20Qwik%20Start%20-%20Console/gsp1143.sh
 
 sudo chmod +x gsp1143.sh
 

@@ -25,17 +25,17 @@ RESET=`tput sgr0`
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
 
-KEYRING_NAME=test CRYPTOKEY_NAME=qwiklab
+KEYRING_NAME=labkey CRYPTOKEY_NAME=qwiklab
 
 gcloud services enable cloudkms.googleapis.com
 
-export BUCKET_NAME="$DEVSHELL_PROJECT_ID-enron_corpus"
+export BUCKET_NAME="$DEVSHELL_PROJECT_ID-kms_lab"
 
-gsutil mb gs://${BUCKET_NAME}
+gcloud storage buckets create gs://${BUCKET_NAME}
 
-gsutil cp gs://enron_emails/allen-p/inbox/1. .
+gcloud storage cp gs://${GOOGLE_CLOUD_PROJECT}-kms-lab-data/finance-dept/inbox/1.txt .
 
-tail 1.
+tail 1.txt
 
 gcloud kms keyrings create $KEYRING_NAME --location global
 
@@ -61,12 +61,15 @@ curl -v "https://cloudkms.googleapis.com/v1/projects/$DEVSHELL_PROJECT_ID/locati
   -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"\
   -H "Content-Type:application/json" \
 | jq .plaintext -r | base64 -d
+gcloud storage cp 1.encrypted gs://${BUCKET_NAME}
 
-gsutil cp 1.encrypted gs://${BUCKET_NAME}
 
-gsutil -m cp -r gs://enron_emails/allen-p .
 
-MYDIR=allen-p
+
+
+gcloud storage cp -r gs://${GOOGLE_CLOUD_PROJECT}-kms-lab-data/finance-dept .
+
+MYDIR=finance-dept
 FILES=$(find $MYDIR -type f -not -name "*.encrypted")
 for file in $FILES; do
   PLAINTEXT=$(cat $file | base64 -w0)
@@ -76,8 +79,8 @@ for file in $FILES; do
     -H "Content-Type:application/json" \
   | jq .ciphertext -r > $file.encrypted
 done
+gcloud storage cp finance-dept/inbox/*.encrypted gs://${BUCKET_NAME}/finance-dept/inbox
 
-gsutil -m cp allen-p/inbox/*.encrypted gs://${BUCKET_NAME}/allen-p/inbox
 
 echo "${BG_RED}${BOLD}Congratulations For Completing The Lab !!!${RESET}"
 

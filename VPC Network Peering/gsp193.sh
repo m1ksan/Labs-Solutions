@@ -22,6 +22,30 @@ BG_WHITE=`tput setab 7`
 BOLD=`tput bold`
 RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
+export PROJECT_ID_2=
+export ZONE=
+export ZONE_2=
+
+read -p "PROJECT_ID_2: " PROJECT_ID_2
+read -p "ZONE_1: " ZONE
+read -p "ZONE_2: " ZONE_2
+
+export PROJECT_ID_2
+export ZONE
+export ZONE_2
+
+REGION=$(echo "$ZONE" | cut -d '-' -f 1-2)
+export REGION
+
+echo ""
+echo "========== CONFIG =========="
+echo "ZONE    : $ZONE"
+echo "REGION  : $REGION"
+echo "ZONE_2 : $ZONE_2"
+echo "PROJECT_ID_2   : $PROJECT_ID_2"
+echo "============================"
+echo ""
+
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
 

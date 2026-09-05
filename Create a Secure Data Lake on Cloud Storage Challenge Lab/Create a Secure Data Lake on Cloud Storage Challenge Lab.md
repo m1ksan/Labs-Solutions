@@ -16,7 +16,7 @@
 ```
 ```
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form1.sh
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form1.sh
 
 sudo chmod +x form1.sh
 
@@ -37,10 +37,9 @@ sudo chmod +x form1.sh
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form2.sh
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form2.sh
 
 sudo chmod +x form2.sh
 
@@ -61,10 +60,9 @@ sudo chmod +x form2.sh
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form3.sh
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form3.sh
 
 sudo chmod +x form3.sh
 
@@ -85,10 +83,9 @@ sudo chmod +x form3.sh
 ### Run the following Commands in CloudShell
 
 ```
-export ZONE=
 ```
 ```
-curl -LO raw.githubusercontent.com/Cloud-Wala-Banda/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form4.sh
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form4.sh
 
 sudo chmod +x form4.sh
 

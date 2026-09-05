@@ -24,7 +24,13 @@ RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${YELLOW}${BOLD}Starting${RESET}" "${GREEN}${BOLD}Execution${RESET}"
-
+read -p "Masukkan Region: " REGION
+export REGION
+echo ""
+echo "========== CONFIG =========="
+echo "REGION  : $REGION"
+echo "============================"
+echo ""
 gcloud services enable dataplex.googleapis.com
 
 gcloud alpha dataplex lakes create sensors \

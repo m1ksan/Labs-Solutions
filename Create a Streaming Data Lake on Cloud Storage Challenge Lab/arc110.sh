@@ -1,6 +1,12 @@
 #!/bin/bash
 # Define color variables
+# ================= INPUT =================
+read -p "Masukkan nama TOPIC: " TOPIC
+read -p "Masukkan MESSAGE: " MESSAGE
 
+export TOPIC
+export MESSAGE
+# ==========================================
 BLACK=`tput setaf 0`
 RED=`tput setaf 1`
 GREEN=`tput setaf 2`

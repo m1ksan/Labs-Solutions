@@ -29,7 +29,7 @@ export ZONE
 echo "ZONE    : $ZONE"
 export REGION="${ZONE%-*}"
 bq mk --location=US Raw_data
-
+# masukin nama lake
 bq load --source_format=AVRO Raw_data.public-data gs://spls/gsp1145/users.avro
 
 gcloud dataplex zones create temperature-raw-data \

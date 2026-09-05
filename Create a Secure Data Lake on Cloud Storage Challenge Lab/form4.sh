@@ -24,7 +24,9 @@ RESET=`tput sgr0`
 #----------------------------------------------------start--------------------------------------------------#
 
 echo "${BG_MAGENTA}${BOLD}Starting Execution${RESET}"
-
+read -p "Masukkan Zone [contoh: us-central1-b]: " ZONE
+export ZONE
+echo "ZONE    : $ZONE"
 export REGION="${ZONE%-*}"
 
 gcloud alpha dataplex lakes create customer-lake \

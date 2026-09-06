@@ -94,12 +94,17 @@ sudo chmod +x form4.sh
 
 * **For Task 4. Follow Video's Instruction from [here](https://youtu.be/tK9bk6wG0aQ?t=65)**
 
-### Congratulations 🎉 for completing the Lab !
+TASK 5
 
-##### *You Have Successfully Demonstrated Your Skills And Determination.*
+Create a lake in Knowledge Catalog and add a zone to your lake
+Create an entry group
+Attach an existing Cloud Storage bucket to the zone
+Create a tag template
 
-#### *Well done!*
+```
+curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form5.sh
 
-#### Don't Forget to Join the [Telegram Channel](https://t.me/cloudwalabanda) & [Discussion group](https://t.me/cloudwalabandachats)
+sudo chmod +x form4.sh
 
-# [Cloud Wala Banda](https://www.youtube.com/@cloudwalabanda)
+./form5.sh
+```

@@ -104,7 +104,7 @@ Create a tag template
 ```
 curl -LO raw.githubusercontent.com/m1ksan/Labs-Solutions/main/Create%20a%20Secure%20Data%20Lake%20on%20Cloud%20Storage%20Challenge%20Lab/form5.sh
 
-sudo chmod +x form4.sh
+sudo chmod +x form5.sh
 
 ./form5.sh
 ```
